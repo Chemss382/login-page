@@ -256,3 +256,81 @@ header {
     text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+    header {
+      padding: 10px 20px;
+    }
+  
+    .navigation a {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  
+    .wrapper {
+      width: 90%;
+      height: auto;
+      flex-direction: column;
+      transform: none !important;
+    }
+  
+    .form-box {
+      padding: 20px;
+      width: 100%;
+    }
+  
+    .form-box.login,
+    .form-box.register {
+      transform: translateX(0);
+      position: relative;
+    }
+  
+    .wrapper.active .form-box.login {
+      display: none;
+    }
+  
+    .wrapper.active .form-box.register {
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header h2 {
+      font-size: 18px;
+    }
+  
+    .navigation {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navigation a {
+      font-size: 12px;
+      margin: 5px 0;
+    }
+  
+    .wrapper {
+      padding: 10px;
+      height: auto;
+      overflow-y: auto;
+    }
+  
+    .form-box h2 {
+      font-size: 20px;
+    }
+  
+    .input-box input {
+      font-size: 14px;
+    }
+  
+    .remember-forgot,
+    .register-link {
+      font-size: 12px;
+    }
+  
+    .btn {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  
+
