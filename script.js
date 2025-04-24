@@ -63,29 +63,27 @@ registerForm.addEventListener('submit', function(e) {
 
 // Login form submission
 loginForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const emailOrUsername = document.getElementById('loginEmail').value.trim();
-    const password = document.getElementById('loginPassword').value;
-    
-    // Basic validation
-    if (!emailOrUsername || !password) {
-        alert('Please fill in all fields');
-        return;
-    }
-    
-    // Check credentials (in a real app, you would verify against a database)
-    // For demo purposes, we'll use the default values
-    const defaultUsername = 'Chems@gmail.com';
-    const defaultPassword = 'chems321';
-    
-    if ((emailOrUsername === defaultUsername || emailOrUsername === `${defaultUsername}@example.com`) && 
-        password === defaultPassword) {
-        localStorage.setItem('userName', defaultUsername);
-        window.location.href = 'welcome.html';
-    } else {
-        alert('Invalid username/email or password');
-    }
+  e.preventDefault();
+  
+  const emailOrUsername = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  
+  // Basic validation
+  if (!emailOrUsername || !password) {
+      alert('Please fill in all fields');
+      return;
+  }
+  
+  // Accept either "Chems" or "Chems@gmail.com"
+  const isUsernameValid = emailOrUsername.toLowerCase() === 'chems' || 
+                        emailOrUsername.toLowerCase() === 'chems@gmail.com';
+  
+  if (isUsernameValid && password === 'chems321') {
+      localStorage.setItem('userName', 'Chems');
+      window.location.href = 'welcome.html';
+  } else {
+      alert('Invalid username/email or password');
+  }
 });
 
 // Helper function to validate email
